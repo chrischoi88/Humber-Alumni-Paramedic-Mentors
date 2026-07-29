@@ -23,7 +23,7 @@
   /* Nav */
   nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--card-border);z-index:100;}
   nav .container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
-  .brand{font-weight:700;color:var(--navy);font-size:18px;}
+  .brand{font-weight:700;color:var(--navy);font-size:18px;display:flex;align-items:center;gap:10px;}
   .navlinks{display:flex;gap:22px;font-size:14px;font-weight:600;flex-wrap:wrap;}
   .navlinks a{text-decoration:none;color:var(--text);}
   .navlinks a:hover{color:var(--navy);}
@@ -61,7 +61,8 @@
   .mentor-body{padding:20px;}
   .mentor-body h3{margin:0 0 2px;color:var(--navy);font-size:19px;}
   .mentor-grad{color:var(--muted);font-size:13.5px;margin:0 0 8px;}
-  .mentor-role{font-size:14.5px;margin:0 0 14px;}
+  .mentor-role{font-size:14.5px;margin:0;font-weight:600;}
+  .mentor-service{font-size:13.5px;color:var(--muted);margin:0 0 14px;}
   .mentor-body h4{font-size:13.5px;color:var(--navy);margin:0 0 6px;text-transform:uppercase;letter-spacing:.03em;}
   .mentor-body ul{margin:0 0 18px;padding-left:18px;font-size:14px;color:var(--text);}
   .mentor-actions{display:flex;gap:10px;}
@@ -85,8 +86,32 @@
   .faq-item h4{margin:0 0 8px;color:var(--navy);font-size:16px;}
   .faq-item p{margin:0;color:var(--text);font-size:14.5px;}
 
+  /* Resources */
+  .resource-alert{max-width:760px;margin:0 auto 30px;background:#fdecea;border:1px solid #f3b6b0;border-radius:10px;padding:16px 22px;color:#7a2019;font-size:14.5px;}
+  .resource-alert strong{color:#7a2019;}
+  .resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1000px;margin:0 auto;}
+  .resource-card{background:#fff;border:1px solid var(--card-border);border-left:4px solid var(--gold);border-radius:10px;padding:20px 22px;}
+  .resource-card h4{margin:0 0 6px;color:var(--navy);font-size:16.5px;}
+  .resource-card p{margin:0 0 8px;color:var(--text);font-size:14px;}
+  .resource-card .contact-line{font-weight:700;color:var(--navy-dark);font-size:14.5px;}
+  .resource-note{max-width:760px;margin:30px auto 0;color:var(--muted);font-size:12.5px;text-align:center;}
+
   footer{background:var(--navy-dark);color:#cfd7ee;text-align:center;padding:40px 24px;font-size:14px;}
   footer a{color:var(--gold);text-decoration:none;}
+
+  /* Disclaimer */
+  .disclaimer{background:#fdf6dc;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);padding:50px 24px;text-align:center;}
+  .disclaimer-icon{font-size:40px;color:var(--gold);margin-bottom:10px;}
+  .disclaimer h2{color:var(--navy);font-size:26px;margin:0 0 22px;}
+  .disclaimer p{max-width:760px;margin:0 auto 16px;color:var(--text);font-size:16px;line-height:1.6;}
+  .disclaimer-box{max-width:640px;margin:24px auto 0;background:#fff;border-radius:12px;padding:24px 28px;text-align:left;}
+  .disclaimer-box h4{color:var(--navy);font-size:17px;margin:0 0 12px;}
+  .disclaimer-box ul{margin:0;padding-left:20px;}
+  .disclaimer-box li{margin-bottom:8px;font-size:15px;color:var(--text);}
+
+  /* Logo showcase */
+  .logo-section{text-align:center;}
+  .logo-showcase{max-width:280px;width:100%;height:auto;}
 
   @media(max-width:760px){
     .about-grid{grid-template-columns:1fr;}
@@ -104,7 +129,7 @@
       <a href="#mentors">Mentors</a>
       <a href="#become-mentor">Become a Mentor</a>
       <a href="#request-mentor">Request a Mentor</a>
-      <a href="#events">Events</a>
+      <a href="#resources">Resources</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
@@ -112,11 +137,28 @@
 </nav>
 
 <section class="hero">
-  <h1>Humber Paramedic Alumni Peer Mentor Network</h1>
+  <h1>Humber Paramedic Alumni<br>Peer Mentor Network</h1>
   <p>You're not alone in the journey. Connect with recent graduates who've been exactly where you are.</p>
   <div class="btn-row">
     <a class="btn btn-gold" href="#mentors">Meet Our Mentors</a>
     <a class="btn btn-outline" href="#request-mentor">Request a Mentor</a>
+  </div>
+</section>
+
+<section class="disclaimer">
+  <div class="disclaimer-icon">&#9888;</div>
+  <h2>Important Disclaimer</h2>
+  <p>The Humber Paramedic Alumni Peer Mentor Network is a <strong>peer-support initiative</strong> designed to foster connection, guidance, and resilience among students and recent graduates.</p>
+  <p><strong>Alumni Mentors are not licensed counsellors, therapists, or mental health professionals.</strong> The guidance they provide is based on personal experience within the Paramedic Program and early professional practice.</p>
+  <p>This mentorship program <strong>does not replace professional medical, psychological, or academic support services.</strong> Students seeking professional help are encouraged to contact Humber's Student Wellness &amp; Accessibility Centre or other qualified professionals.</p>
+  <div class="disclaimer-box">
+    <h4>If you need immediate help:</h4>
+    <ul>
+      <li><strong>Humber Student Wellness &amp; Accessibility Centre:</strong> 416-675-6622 ext. 5090</li>
+      <li><strong>Good2Talk (24/7 student helpline):</strong> 1-866-925-5454</li>
+      <li><strong>9-8-8 Suicide Crisis Helpline (24/7):</strong> Call or text 988</li>
+      <li><strong>In an emergency:</strong> Call 911 or go to your nearest emergency department.</li>
+    </ul>
   </div>
 </section>
 
@@ -150,37 +192,61 @@
   </div>
 </section>
 
-<section class="cta">
-  <h2>Want to join our mentor community?</h2>
-  <p>If you're a recent graduate eager to give back, share your experience, and help the next generation of Humber Paramedics, we'd love to have you on board.</p>
-  <a class="btn btn-gold" href="#become-mentor">Apply to Become a Mentor</a>
-</section>
-
-<section class="alt-bg" id="become-mentor">
+<section id="become-mentor">
   <h2 class="section-title">Become a Mentor</h2>
   <p class="section-sub">Are you a Humber PCP graduate from the past 1&ndash;3 years? Share what you've learned with the next cohort. This is a flexible volunteer role &mdash; mentors receive a certificate of participation and are welcome to request a reference letter.</p>
-  <div class="form-wrap">
-    <iframe class="form-embed" id="mentorFormFrame" src="" title="Mentor Application Form"></iframe>
-    <p class="form-note" id="mentorFormNote">Mentor application form will appear here once the site owner adds the Google Form link in the site configuration.</p>
+  <div class="form-wrap" style="text-align:center;">
+    <a class="btn btn-gold" id="mentorFormLink" href="#" target="_blank" rel="noopener">Open Mentor Application Form &#8599;</a>
+    <p class="form-note" id="mentorFormNote">The mentor application form link will appear here once the site owner adds it in the site configuration.</p>
   </div>
 </section>
 
-<section id="request-mentor">
+<section class="alt-bg" id="request-mentor">
   <h2 class="section-title">Request a Mentor</h2>
   <p class="section-sub">Currently in the PCP program and want an alumni perspective? Fill out the form below and we'll connect you with a mentor or invite you to our next group session.</p>
-  <div class="form-wrap">
-    <iframe class="form-embed" id="studentFormFrame" src="" title="Student Mentor Request Form"></iframe>
-    <p class="form-note" id="studentFormNote">Student request form will appear here once the site owner adds the Google Form link in the site configuration.</p>
+  <div class="form-wrap" style="text-align:center;">
+    <a class="btn btn-gold" id="studentFormLink" href="#" target="_blank" rel="noopener">Open Mentor Request Form &#8599;</a>
+    <p class="form-note" id="studentFormNote">The student request form link will appear here once the site owner adds it in the site configuration.</p>
   </div>
 </section>
 
-<section class="alt-bg" id="events">
-  <h2 class="section-title">Events &amp; Drop-In Sessions</h2>
-  <p class="section-sub">Monthly drop-ins, small group check-ins, and alumni-led panels. This calendar updates automatically &mdash; no need to edit the website.</p>
-  <div class="form-wrap">
-    <iframe class="form-embed" style="min-height:600px;" id="calendarFrame" src="" title="Program Events Calendar"></iframe>
-    <p class="form-note" id="calendarNote">Events calendar will appear here once the site owner adds the Google Calendar embed link in the site configuration.</p>
+<section class="logo-section">
+  <img class="logo-showcase" src="humber_crest_full_lockup.png" alt="Humber Polytechnic Paramedic Program crest">
+</section>
+
+<section class="alt-bg" id="resources">
+  <h2 class="section-title">Mental Health &amp; Crisis Resources</h2>
+  <p class="section-sub">Mentors are peer supporters, not clinicians. If you or someone you know needs more support than a mentor can offer, these resources are free, confidential, and available now.</p>
+
+  <div class="resource-alert">
+    <strong>In an emergency or if someone is in immediate danger, call 911.</strong>
   </div>
+
+  <div class="resource-grid">
+    <div class="resource-card">
+      <h4>9-8-8: Suicide Crisis Helpline</h4>
+      <p>Free, confidential support for anyone in Canada thinking about suicide or worried about someone else. Available 24/7 by call or text, in English and French.</p>
+      <p class="contact-line">Call or text 988</p>
+    </div>
+    <div class="resource-card">
+      <h4>Good2Talk (Ontario)</h4>
+      <p>Free, confidential helpline for Ontario post-secondary students, staffed by professional counsellors. Available 24/7.</p>
+      <p class="contact-line">1-866-925-5454 &nbsp;|&nbsp; Text GOOD2TALKON to 686868</p>
+    </div>
+    <div class="resource-card">
+      <h4>Humber Student Wellness &amp; Accessibility Centre (SWAC)</h4>
+      <p>Counselling appointments for Humber students, by phone/video or in person.</p>
+      <p class="contact-line">416-675-5090 (remote booking, Mon&ndash;Fri 8:30am&ndash;4:30pm)</p>
+      <p class="contact-line">Lakeshore campus: 416-675-6622 x3331</p>
+    </div>
+    <div class="resource-card">
+      <h4>CMHA Toronto Walk-In Support at Humber</h4>
+      <p>Free walk-in and evening mental health support on campus, provided in partnership with the Canadian Mental Health Association Toronto.</p>
+      <p class="contact-line">North &amp; Lakeshore campuses, Mon&ndash;Fri 5&ndash;10pm</p>
+    </div>
+  </div>
+
+  <p class="resource-note">Verify these numbers and hours against Humber's Student Wellness &amp; Accessibility Centre page before printing or distributing, as contact details can change between semesters.</p>
 </section>
 
 <section id="faq">
@@ -214,38 +280,86 @@
 const CONFIG = {
   // Published Google Sheet (mentors) as CSV link.
   // Sheet columns required, in this exact order:
-  // Name | GradYear | RoleLocation | Experience1 | Experience2 | Experience3 | Email | PhotoUrl
+  // Name | GradYear | Role | Service | Experience1 | Experience2 | Experience3 | Email | PhotoUrl
   mentorSheetCsvUrl: "",
 
   // Google Form embed links (Form > Send > <> embed icon > copy the src URL)
-  mentorFormEmbedUrl: "",
-  studentFormEmbedUrl: "",
-
-  // Google Calendar embed link (Calendar Settings > Integrate calendar > embed src URL)
-  calendarEmbedUrl: "",
+  mentorFormEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeW6MTvjFj7NqrVg0YgC7EVcGpuFCCpNHAFX-J35q77rOYbQQ/viewform?embedded=true",
+  studentFormEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSf_CEYNsdEBqhraC9CCWvQR6yGu_aDQx65RM2URxqvmzT-D-g/viewform?embedded=true",
 
   // Faculty liaison contact email shown in the footer
-  contactEmail: "chris.choi4@gmail.com"
+  contactEmail: "chris.choi@humber.ca"
 };
 /* ============================================================ */
+
+// Shown only until CONFIG.mentorSheetCsvUrl is connected — replace/remove once the
+// real mentor spreadsheet is live. Update each placeholder email below to a real address.
+const SAMPLE_MENTORS = [
+  {
+    Name: "John Doe",
+    GradYear: "2026",
+    Role: "Primary Care Paramedic",
+    Service: "Peel Region",
+    Experience1: "Field placement",
+    Experience2: "Time management",
+    Experience3: "Peer mentorship",
+    Email: "REPLACE_WITH_JOHN_DOE_EMAIL@example.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Sarah Chen",
+    GradYear: "2024",
+    Role: "Primary Care Paramedic",
+    Service: "Toronto Paramedic Services",
+    Experience1: "Clinical rotations",
+    Experience2: "Confidence building",
+    Experience3: "Peer mentorship",
+    Email: "REPLACE_WITH_SARAH_CHEN_EMAIL@example.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Marcus Webb",
+    GradYear: "2023",
+    Role: "Primary Care Paramedic",
+    Service: "Durham Region",
+    Experience1: "Field placement",
+    Experience2: "Stress management",
+    Experience3: "Interview prep",
+    Email: "REPLACE_WITH_MARCUS_WEBB_EMAIL@example.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Priya Sharma",
+    GradYear: "2025",
+    Role: "Primary Care Paramedic",
+    Service: "Halton Region",
+    Experience1: "Time management",
+    Experience2: "Clinical skills",
+    Experience3: "Work-life balance",
+    Email: "REPLACE_WITH_PRIYA_SHARMA_EMAIL@example.com",
+    PhotoUrl: ""
+  }
+];
 
 document.getElementById("contactEmailLink").textContent = CONFIG.contactEmail;
 document.getElementById("contactEmailLink").href = "mailto:" + CONFIG.contactEmail;
 
-function setFrame(id, noteId, url){
-  const frame = document.getElementById(id);
+function setFormLink(id, noteId, url){
+  const link = document.getElementById(id);
   const note = document.getElementById(noteId);
-  if(url){
-    frame.src = url;
-    frame.style.display = "block";
+  // Strip "?embedded=true" (and similar) so the link opens the normal, full Google Form page.
+  const cleanUrl = url ? url.replace(/[?&]embedded=true/i, "") : "";
+  if(cleanUrl){
+    link.href = cleanUrl;
+    link.style.display = "inline-block";
     note.style.display = "none";
   } else {
-    frame.style.display = "none";
+    link.style.display = "none";
+    note.style.display = "block";
   }
 }
-setFrame("mentorFormFrame","mentorFormNote", CONFIG.mentorFormEmbedUrl);
-setFrame("studentFormFrame","studentFormNote", CONFIG.studentFormEmbedUrl);
-setFrame("calendarFrame","calendarNote", CONFIG.calendarEmbedUrl);
+setFormLink("mentorFormLink","mentorFormNote", CONFIG.mentorFormEmbedUrl);
+setFormLink("studentFormLink","studentFormNote", CONFIG.studentFormEmbedUrl);
 
 function mailtoLink(email, subject){
   return "mailto:" + email + "?subject=" + encodeURIComponent(subject);
@@ -262,7 +376,8 @@ function renderMentors(rows){
     const name = (row.Name || "").trim();
     if(!name) return;
     const grad = (row.GradYear || "").trim();
-    const role = (row.RoleLocation || "").trim();
+    const role = (row.Role || "").trim();
+    const service = (row.Service || "").trim();
     const exp = [row.Experience1, row.Experience2, row.Experience3].filter(function(e){ return e && e.trim(); });
     const email = (row.Email || "").trim();
     const photo = (row.PhotoUrl || "").trim();
@@ -291,6 +406,7 @@ function renderMentors(rows){
         '<h3>' + name + '</h3>' +
         '<p class="mentor-grad">' + (grad ? "Class of " + grad : "") + '</p>' +
         '<p class="mentor-role">' + role + '</p>' +
+        '<p class="mentor-service">' + service + '</p>' +
         expHtml +
         actionsHtml +
       '</div>';
@@ -311,7 +427,7 @@ if(CONFIG.mentorSheetCsvUrl){
     }
   });
 } else {
-  renderMentors([]);
+  renderMentors(SAMPLE_MENTORS);
 }
 </script>
 
