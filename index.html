@@ -54,17 +54,18 @@
 
   /* Mentor grid */
   .mentor-section{background:#fff;}
-  .mentor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1000px;margin:0 auto;}
+  .mentor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1000px;margin:34px auto 0;}
   .mentor-card{border:1px solid var(--card-border);border-radius:12px;overflow:hidden;background:#fff;}
-  .mentor-photo{width:100%;aspect-ratio:1/1;background:#eef1f8;display:flex;align-items:center;justify-content:center;color:#a9b2c9;font-size:34px;}
-  .mentor-photo img{width:100%;height:100%;object-fit:cover;}
-  .mentor-body{padding:20px;}
+  .mentor-photo{width:40%;max-width:110px;aspect-ratio:1/1;border-radius:50%;background:#eef1f8;display:flex;align-items:center;justify-content:center;color:#a9b2c9;font-size:14px;margin:20px auto 0;overflow:hidden;}
+  .mentor-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+  .mentor-body{padding:20px;text-align:center;}
   .mentor-body h3{margin:0 0 2px;color:var(--navy);font-size:19px;}
   .mentor-grad{color:var(--muted);font-size:13.5px;margin:0 0 8px;}
   .mentor-role{font-size:14.5px;margin:0;font-weight:600;}
   .mentor-service{font-size:13.5px;color:var(--muted);margin:0 0 14px;}
   .mentor-body h4{font-size:13.5px;color:var(--navy);margin:0 0 6px;text-transform:uppercase;letter-spacing:.03em;}
-  .mentor-body ul{margin:0 0 18px;padding-left:18px;font-size:14px;color:var(--text);}
+  .mentor-body ul{margin:0 0 18px;padding-left:18px;font-size:14px;color:var(--text);text-align:left;}
+  .mentor-interests{font-size:13.5px;color:var(--text);margin:0 0 18px;text-align:left;line-height:1.5;}
   .mentor-actions{display:flex;gap:10px;}
   .mentor-actions .btn{padding:10px 16px;font-size:13.5px;flex:1;text-align:center;}
   .mentor-empty{grid-column:1/-1;text-align:center;color:var(--muted);font-size:15px;padding:30px;border:1px dashed var(--card-border);border-radius:12px;}
@@ -212,7 +213,6 @@
 
 <section class="mentor-section" id="mentors">
   <h2 class="section-title">Meet Our Mentors</h2>
-  <p class="section-sub">Mentor profiles are pulled automatically from a shared spreadsheet &mdash; no code required to add, edit, or remove a mentor.</p>
   <div class="mentor-grid" id="mentorGrid">
     <div class="mentor-empty">Loading mentor profiles&hellip;</div>
   </div>
@@ -352,7 +352,9 @@
 const CONFIG = {
   // Published Google Sheet (mentors) as CSV link.
   // Sheet columns required, in this exact order:
-  // Name | GradYear | Role | Service | Experience1 | Experience2 | Experience3 | Email | PhotoUrl
+  // Name | GradYear | Role | Service | Strengths | Interests | Email | PhotoUrl
+  // Strengths: comma-separated list in one cell, e.g. "Skills, Rideouts, Clinical Placement"
+  // Interests: free text, e.g. "Music, Psychology, Frisbee" — leave blank to omit
   mentorSheetCsvUrl: "",
 
   // Google Form embed links (Form > Send > <> embed icon > copy the src URL)
@@ -365,50 +367,126 @@ const CONFIG = {
 /* ============================================================ */
 
 // Shown only until CONFIG.mentorSheetCsvUrl is connected — replace/remove once the
-// real mentor spreadsheet is live. Update each placeholder email below to a real address.
+// real mentor spreadsheet is live.
 const SAMPLE_MENTORS = [
   {
-    Name: "John Doe",
+    Name: "Jasper Walton",
     GradYear: "2026",
     Role: "Primary Care Paramedic",
-    Service: "Peel Region",
-    Experience1: "Field placement",
-    Experience2: "Time management",
-    Experience3: "Peer mentorship",
-    Email: "REPLACE_WITH_JOHN_DOE_EMAIL@example.com",
+    Service: "Toronto Paramedic Services",
+    Strengths: "Resource navigation, building confidence, work-life balance, teamwork",
+    Interests: "Baseball, biking, video games, reading",
+    Email: "jasper.lyn.walton@gmail.com",
     PhotoUrl: ""
   },
   {
-    Name: "Sarah Chen",
-    GradYear: "2024",
+    Name: "Bikramjeet Bambrah",
+    GradYear: "2026",
+    Role: "Primary Care Paramedic",
+    Service: "Peel Paramedic Services",
+    Strengths: "Paramedic Science, Skills, Pharmacology",
+    Interests: "Painting, Crocheting, Gardening",
+    Email: "bikramjeet.singh07@yahoo.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Ralph Diep",
+    GradYear: "2026",
     Role: "Primary Care Paramedic",
     Service: "Toronto Paramedic Services",
-    Experience1: "Clinical rotations",
-    Experience2: "Confidence building",
-    Experience3: "Peer mentorship",
-    Email: "REPLACE_WITH_SARAH_CHEN_EMAIL@example.com",
+    Strengths: "Mental health (emotional support), stress management, rideout support",
+    Interests: "I am currently learning how to box. I enjoy playing games and reading manga/webtoon on my downtime.",
+    Email: "ralphdiep.2594@gmail.com",
     PhotoUrl: ""
   },
   {
-    Name: "Marcus Webb",
-    GradYear: "2023",
-    Role: "Primary Care Paramedic",
-    Service: "Durham Region",
-    Experience1: "Field placement",
-    Experience2: "Stress management",
-    Experience3: "Interview prep",
-    Email: "REPLACE_WITH_MARCUS_WEBB_EMAIL@example.com",
-    PhotoUrl: ""
-  },
-  {
-    Name: "Priya Sharma",
+    Name: "Jared Berger",
     GradYear: "2025",
     Role: "Primary Care Paramedic",
-    Service: "Halton Region",
-    Experience1: "Time management",
-    Experience2: "Clinical skills",
-    Experience3: "Work-life balance",
-    Email: "REPLACE_WITH_PRIYA_SHARMA_EMAIL@example.com",
+    Service: "Toronto Paramedic Services",
+    Strengths: "Skills, Rideouts, Clinical Placement",
+    Interests: "Music, Psychology, Frisbee",
+    Email: "berger.jared@hotmail.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Taylor Hurlock",
+    GradYear: "2025",
+    Role: "Primary Care Paramedic",
+    Service: "Peel Paramedic Services",
+    Strengths: "Skills Classes, Fitness Requirements, Communication",
+    Interests: "Prior to becoming a paramedic, I worked in the health and fitness industry as a Clinical Exercise Physiologist and Rehabilitation Consultant. I developed a strength training program to help students prepare for their upcoming career and prevent future injury.",
+    Email: "tbhurlock@gmail.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Jonathan Oldenburger",
+    GradYear: "2025",
+    Role: "Primary Care Paramedic",
+    Service: "York Paramedic Services",
+    Strengths: "Interpersonal communication/relationships, work-life balance, addressing conflict, navigating major life events",
+    Interests: "Rock climbing, trail running, camping, mountain biking",
+    Email: "jon.oldenb@gmail.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Lucas Caravaggio",
+    GradYear: "2025",
+    Role: "Primary Care Paramedic",
+    Service: "York Paramedic Services",
+    Strengths: "Science (anatomy/physiology), cardiology/12-leads/mimics, field placement, stress management",
+    Interests: "Reading, listening to music, working out",
+    Email: "lucas_caravaggio@hotmail.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Sally Hassan",
+    GradYear: "2025",
+    Role: "Primary Care Paramedic",
+    Service: "Peel Paramedic Services",
+    Strengths: "",
+    Interests: "",
+    Email: "sallyheltayeb@gmail.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Filipe Ferez",
+    GradYear: "2025",
+    Role: "Primary Care Paramedic",
+    Service: "Toronto Paramedic Services",
+    Strengths: "",
+    Interests: "",
+    Email: "filipe_f96@hotmail.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Juan Ramos",
+    GradYear: "2025",
+    Role: "Primary Care Paramedic",
+    Service: "Peel Paramedic Services",
+    Strengths: "",
+    Interests: "",
+    Email: "jframos-75@hotmail.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Kiyan Kheradvar",
+    GradYear: "2026",
+    Role: "Primary Care Paramedic",
+    Service: "Peel Paramedic Services",
+    Strengths: "Skills/Scenarios, Science, Advanced Concepts, Anatomy, Legal",
+    Interests: "",
+    Email: "kiyankred@gmail.com",
+    PhotoUrl: ""
+  },
+  {
+    Name: "Keeghan Kennedy",
+    GradYear: "2026",
+    Role: "Primary Care Paramedic",
+    Service: "Toronto Paramedic Services",
+    Strengths: "Paramedic science/theory, directives, study strategies, time management",
+    Interests: "Fun fact: I love playing chess and can't stand the taste of Nutella.",
+    Email: "Keeghankennedy1@gmail.com",
     PhotoUrl: ""
   }
 ];
@@ -450,7 +528,10 @@ function renderMentors(rows){
     const grad = (row.GradYear || "").trim();
     const role = (row.Role || "").trim();
     const service = (row.Service || "").trim();
-    const exp = [row.Experience1, row.Experience2, row.Experience3].filter(function(e){ return e && e.trim(); });
+    const strengths = (row.Strengths || "").trim()
+      ? (row.Strengths || "").split(",").map(function(s){ return s.trim(); }).filter(Boolean)
+      : [];
+    const interests = (row.Interests || "").trim();
     const email = (row.Email || "").trim();
     const photo = (row.PhotoUrl || "").trim();
 
@@ -461,14 +542,17 @@ function renderMentors(rows){
       ? '<div class="mentor-photo"><img src="' + photo + '" alt="' + name + '"></div>'
       : '<div class="mentor-photo">?</div>';
 
-    const expHtml = exp.length
-      ? '<h4>Areas of Experience</h4><ul>' + exp.map(function(e){ return '<li>' + e + '</li>'; }).join("") + '</ul>'
+    const strengthsHtml = strengths.length
+      ? '<h4>Program Strengths</h4><ul>' + strengths.map(function(s){ return '<li>' + s + '</li>'; }).join("") + '</ul>'
+      : "";
+
+    const interestsHtml = interests
+      ? '<h4>Interests</h4><p class="mentor-interests">' + interests + '</p>'
       : "";
 
     const actionsHtml = email
       ? '<div class="mentor-actions">' +
-          '<a class="btn btn-gold" href="' + mailtoLink(email, "Chat request – " + name) + '">Book a Chat</a>' +
-          '<a class="btn btn-outline-navy" href="' + mailtoLink(email, "Message from student") + '">Message Mentor</a>' +
+          '<a class="btn btn-gold" href="' + mailtoLink(email, "Message from student") + '">Message Mentor</a>' +
         '</div>'
       : "";
 
@@ -479,7 +563,8 @@ function renderMentors(rows){
         '<p class="mentor-grad">' + (grad ? "Class of " + grad : "") + '</p>' +
         '<p class="mentor-role">' + role + '</p>' +
         '<p class="mentor-service">' + service + '</p>' +
-        expHtml +
+        strengthsHtml +
+        interestsHtml +
         actionsHtml +
       '</div>';
 
